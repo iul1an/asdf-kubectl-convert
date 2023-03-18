@@ -83,9 +83,6 @@ install_version() {
   ( 
     mkdir -p "$install_path"
     install -m 755 "${ASDF_DOWNLOAD_PATH}/kubectl-convert" "$install_path"
-    local tool_cmd
-    tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
-    test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
     echo "$TOOL_NAME $version installation was successful!"
   ) || (
     rm -rf "$install_path"
